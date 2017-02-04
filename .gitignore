@@ -1,2 +1,5 @@
 # Visual Studio Code cache directory
 .vscode/
+
+# Python cache directory
+__pycache__/
