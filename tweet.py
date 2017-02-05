@@ -10,7 +10,7 @@ import urllib.request
 def tweets(subject, nresults):
     """Return search results on the tweet subjects."""
     auth = urllib.request.HTTPBasicAuthHandler()
-    password = 'guido456'
+    password = 'example'
     auth.add_password("Twitter API", "https://twitter.com", "pythonclass", password)
     opener = urllib.request.build_opener(auth)
 

@@ -19,5 +19,5 @@ def update(username, password, status):
     resp = u.read()
     return resp.decode()
 
-r = update('pythonclass', 'guido456', 'hello all!')
+r = update('pythonclass', 'example', 'hello all!')
 print(r)
