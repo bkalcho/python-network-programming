@@ -9,8 +9,17 @@ import urllib.request
 
 def tweets(subject, nresults):
     """Return search results on the tweet subjects."""
+    auth = urllib.request.HTTPBasicAuthHandler()
+    password = 'guido456'
+    auth.add_password("Twitter API", "https://twitter.com", "pythonclass", password)
+    opener = urllib.request.build_opener(auth)
+
     fields = {'q': subject, 'rpp': nresults}
     params = urllib.parse.urlencode(fields)
-    u = urllib.request.urlopen("https://api.twitter.com/1.1/search/tweets.json?"+params)
+    request = urllib.request.Request("https://api.twitter.com/1.1/search/tweets.json?"+params)
+    u = opener.open(request)
     response = u.read()
     return response.decode()
+
+if __name__ == '__main__':
+    tweets('python', 25)
