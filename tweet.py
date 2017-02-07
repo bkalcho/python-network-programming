@@ -6,6 +6,7 @@
 
 import urllib.parse
 import urllib.request
+import json
 
 def tweets(subject, nresults):
     """Return search results on the tweet subjects."""
@@ -18,8 +19,8 @@ def tweets(subject, nresults):
     params = urllib.parse.urlencode(fields)
     request = urllib.request.Request("https://api.twitter.com/1.1/search/tweets.json?"+params)
     u = opener.open(request)
-    response = u.read()
-    return response.decode()
+    results = json.load(u)
+    return results['results']
 
 if __name__ == '__main__':
     tweets('python', 25)
