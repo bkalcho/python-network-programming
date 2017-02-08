@@ -1,0 +1,55 @@
+<table width=600 bgcolor="#e0e0ff" border=1 cellpadding=20>
+<tr>
+<td>
+<b>Objectives:</b>
+<ul>
+<li>Learn how to render page templates</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>
+The file <tt>Data/exercisetemplate.html</tt> contains an HTML page template for 
+a course exercise page (basically what you're viewing now).</p>
+
+<p>
+Load this page template into a Template string:</p>
+
+<blockquote>
+<pre>
+>>> <b>from string import Template</b>
+>>> <b>pagetemp = Template(open("Data/exercisetemplate.html").read())</b>
+>>> <b>print pagetemp.template</b>
+... look at it ...
+>>>
+</pre>
+</blockquote>
+
+<p>
+The file <tt>Data/exercise.ht</tt> contains the HTML content of this course
+exercise (basically the HTML body). Read it into a string:
+</p>
+
+<blockquote>
+<pre>
+>>> <b>body = open("Data/exercise.ht").read()</b>
+>>> <b>print body</b>
+... look at it ...
+</pre>
+</blockquote>
+
+<p>
+Now, type the following to render an HTML page:</p>
+
+<blockquote>
+<pre>
+>>> <b>f = open("exercise.html","w")</b>
+>>> <b>f.write(pagetemp.substitute(body=body,section=4,problem=2))</b>
+>>> <b>f.close()</b>
+</pre>
+</blockquote>
+
+<p>
+Once you're done, go look at the produced page using your browser. The final
+result should look similar to what you're viewing now.</p>
